@@ -50,8 +50,10 @@
           </b-card>
         </b-col>
       </b-row>
+      <!--should be redone-->
       <b-button variant="outline-primary" @click="scrollImg(-1)">Prev</b-button>
       <b-button variant="outline-primary" @click="scrollImg(+1)">Next</b-button>
+      <!---->
     </div>
 
     <b-modal id="modal-1" title="HD Img" centered hide-footer size="xl">
@@ -91,6 +93,7 @@ export default {
       this.$bvModal.show("modal-1");
     },
     async scrollImg(step) {
+      /*Of course this would not be done this way, jut a quick simulation, should be redone, skip to next page etc etc*/
       let index = this.$store.state.images.pictures
         .map(function(x) {
           return x.id;
@@ -108,6 +111,7 @@ export default {
       }
     },
     coppyToClipboard(url) {
+      /*Of course this would not be done this way, jut a quick simulation, should be redone*/
       alert("Copied to clipboard");
       try {
         const el = document.createElement("textarea");
@@ -124,7 +128,7 @@ export default {
       }
     },
   },
-  async mounted() {
+  async beforeMount() {
     const response = await this.$store.dispatch("getImage", this.img_id);
     this.img = response;
     //console.log(response);
