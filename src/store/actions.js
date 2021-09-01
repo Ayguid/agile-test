@@ -1,11 +1,12 @@
 import axios from 'axios'
 
-const API_URL = 'http://interview.agileengine.com/'
-const API_KEY = '23567b218376f79d9415'
+const API_URL = 'http://interview.agileengine.com/' /* should be served over https for deploy to work on GHpages */
+const API_KEY = '23567b218376f79d9415' //move to config file
+/*token could be added to all req headers */
 
 const actions = {
   async getAccessToken({ commit }) {
-    if (!this.state.access_token) {// if no token present, i know still more validation needed,,,
+    if (!this.state.access_token) {// if no token present, still more validation/cleaning needed,,,
       const response = await axios({
         method: 'post',
         url: API_URL + 'auth',
@@ -35,7 +36,6 @@ const actions = {
         Authorization: "Bearer " + this.state.access_token
       }
     })
-    //console.log(response)
     if (response.status == '200') {
       commit('SET_IMAGES', response.data)
       return true
