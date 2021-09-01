@@ -1,9 +1,9 @@
 <template>
   <div class="ImgDetail">
     <h4>Photo view</h4>
-    <router-link to="/">Back to Gallery</router-link>
+    <router-link class="btn btn-primary" to="/">Back to Gallery</router-link>
 
-    <div>
+    <div class="mt-2">
       <b-row class="mb-2">
         <b-col sm="12" md="6" lg="4">
           <div class="contain">
